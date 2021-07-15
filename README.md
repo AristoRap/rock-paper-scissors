@@ -1,0 +1,1 @@
+This repository contains my own take on the classic game Rock Paper Scissors as part of the TOP Foundations curriculum. 
