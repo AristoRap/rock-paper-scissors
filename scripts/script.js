@@ -3,12 +3,52 @@ function computerPlay() {
   let randomNumberFromOneToThree = Math.floor(Math.random() * 3) + 1;
   if (randomNumberFromOneToThree === 1) return "Rock";
   if (randomNumberFromOneToThree === 2) return "Paper";
-  if (randomNumberFromOneToThree === 3) return "Scissors";
+  return "Scissors";
 }
-//Write a function that plays a single round of Rock Paper Scissors. 
+//Write a function that plays a single round of Rock Paper Scissors.
 //The function should take two parameters - the playerSelection and computerSelection
 //then return a string that declares the winner of the round
 
-function playGame(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection = computerPlay()) {
+  if (typeof playerSelection !== 'string')
+    return "Please select Rock, Paper or Scissors to play";
 
+  const playerSelectionLowerCase = playerSelection.toLowerCase();
+  const playerSelectionUpperCase = playerSelection.toUpperCase();
+  const playerSelectionFormatted = `${playerSelectionUpperCase.slice(0,1)}${playerSelectionLowerCase.slice(1)}`;
+ if (
+    playerSelectionFormatted !== "Rock" &&
+    playerSelectionFormatted !== "Paper" &&
+    playerSelectionFormatted !== "Scissors"
+  )
+    return "Please select Rock, Paper or Scissors to play";
+
+  if (playerSelectionFormatted === computerSelection) return "It's a draw!";
+
+  if (playerSelectionFormatted === "Rock") {
+    if (computerSelection === "Scissors") {
+      return "You win!";
+    } else {
+      return "You lose!";
+    }
+  }
+
+  if (playerSelectionFormatted === "Paper") {
+    if (computerSelection === "Rock") {
+      return "You win!";
+    } else {
+      return "You lose";
+    }
+  }
+
+  if (playerSelectionFormatted === "Scissors") {
+    if (computerSelection === "Paper") {
+      return "You win!";
+    } else {
+      return "You lose";
+    }
+  }
 }
+
+const playerSelection = 'rOcK';
+console.log(playRound(playerSelection));
