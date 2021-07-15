@@ -27,28 +27,25 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
 
   if (playerSelectionFormatted === "Rock") {
     if (computerSelection === "Scissors") {
-      return "You win!";
+      return `You win! ${playerSelectionFormatted} beats ${computerSelection}`;
     } else {
-      return "You lose!";
+      return `You lose! ${computerSelection} beats ${playerSelectionFormatted}`;
     }
   }
 
   if (playerSelectionFormatted === "Paper") {
     if (computerSelection === "Rock") {
-      return "You win!";
+      return `You win! ${playerSelectionFormatted} beats ${computerSelection}`;
     } else {
-      return "You lose";
+      return `You lose! ${computerSelection} beats ${playerSelectionFormatted}`;
     }
   }
 
   if (playerSelectionFormatted === "Scissors") {
     if (computerSelection === "Paper") {
-      return "You win!";
+      return `You win! ${playerSelectionFormatted} beats ${computerSelection}`;
     } else {
-      return "You lose";
+      return `You lose! ${computerSelection} beats ${playerSelectionFormatted}`;
     }
   }
 }
-
-const playerSelection = 'rOcK';
-console.log(playRound(playerSelection));
