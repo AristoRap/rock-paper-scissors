@@ -8,44 +8,60 @@ function computerPlay() {
 //Write a function that plays a single round of Rock Paper Scissors.
 //The function should take two parameters - the playerSelection and computerSelection
 //then return a string that declares the winner of the round
+//const playerSelectionFormatted = playerSelection.toLowerCase();
 
+//Function to check if input is string
+function checkInputIsString(playerSelection) {
+  if (typeof playerSelection !== "string") {
+    return false;
+  } else return true;
+}
+
+//Function to check if input has acceptable values
+function checkInputValueIsValid(playerSelection) {
+  if (
+    checkInputIsString(playerSelection) === true &&
+    playerSelection.toLowerCase() !== "rock" &&
+    playerSelection.toLowerCase() !== "paper" &&
+    playerSelection.toLowerCase() !== "scissors"
+  ) {
+    return false;
+  } else return true;
+}
+
+//Play one round of the game
 function playRound(playerSelection, computerSelection = computerPlay()) {
-  if (typeof playerSelection !== 'string')
-    return "Please select Rock, Paper or Scissors to play";
+  if (
+    checkInputIsString(playerSelection) === false ||
+    checkInputValueIsValid(playerSelection) === false
+  ){return 'Please select Rock, Paper or Scissors to play';
+  }
+ 
+  const formattedInput = playerSelection.toUpperCase().slice(0,1) + playerSelection.toLowerCase().slice(1)
 
-  const playerSelectionLowerCase = playerSelection.toLowerCase();
-  const playerSelectionUpperCase = playerSelection.toUpperCase();
-  const playerSelectionFormatted = `${playerSelectionUpperCase.slice(0,1)}${playerSelectionLowerCase.slice(1)}`;
- if (
-    playerSelectionFormatted !== "Rock" &&
-    playerSelectionFormatted !== "Paper" &&
-    playerSelectionFormatted !== "Scissors"
-  )
-    return "Please select Rock, Paper or Scissors to play";
+  if (formattedInput === computerSelection) return "It's a draw!";
 
-  if (playerSelectionFormatted === computerSelection) return "It's a draw!";
-
-  if (playerSelectionFormatted === "Rock") {
+  if (formattedInput === "Rock") {
     if (computerSelection === "Scissors") {
-      return `You win! ${playerSelectionFormatted} beats ${computerSelection}`;
+      return `You win! ${formattedInput} beats ${computerSelection}`;
     } else {
-      return `You lose! ${computerSelection} beats ${playerSelectionFormatted}`;
+      return `You lose! ${computerSelection} beats ${formattedInput}`;
     }
   }
 
-  if (playerSelectionFormatted === "Paper") {
+  if (formattedInput === "Paper") {
     if (computerSelection === "Rock") {
-      return `You win! ${playerSelectionFormatted} beats ${computerSelection}`;
+      return `You win! ${formattedInput} beats ${computerSelection}`;
     } else {
-      return `You lose! ${computerSelection} beats ${playerSelectionFormatted}`;
+      return `You lose! ${computerSelection} beats ${formattedInput}`;
     }
   }
 
-  if (playerSelectionFormatted === "Scissors") {
+  if (formattedInput === "Scissors") {
     if (computerSelection === "Paper") {
-      return `You win! ${playerSelectionFormatted} beats ${computerSelection}`;
+      return `You win! ${formattedInput} beats ${computerSelection}`;
     } else {
-      return `You lose! ${computerSelection} beats ${playerSelectionFormatted}`;
+      return `You lose! ${computerSelection} beats ${formattedInput}`;
     }
   }
 }
