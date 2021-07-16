@@ -34,10 +34,13 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
   if (
     checkInputIsString(playerSelection) === false ||
     checkInputValueIsValid(playerSelection) === false
-  ){return 'Please select Rock, Paper or Scissors to play';
+  ) {
+    return "Please select Rock, Paper or Scissors to play";
   }
- 
-  const formattedInput = playerSelection.toUpperCase().slice(0,1) + playerSelection.toLowerCase().slice(1)
+
+  const formattedInput =
+    playerSelection.toUpperCase().slice(0, 1) +
+    playerSelection.toLowerCase().slice(1);
 
   if (formattedInput === computerSelection) return "It's a draw!";
 
@@ -65,3 +68,59 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
     }
   }
 }
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  
+  const roundOne = playRound("rock", (computerSelection = computerPlay()));
+  console.log(roundOne);
+  if (roundOne.slice(4, 5) === "w") {
+    playerScore++;
+  } else if (roundOne.slice(4, 5) === "l") {
+    computerScore++;
+  }
+
+  const roundTwo = playRound("paper", (computerSelection = computerPlay()));
+  console.log(roundTwo);
+  if (roundTwo.slice(4, 5) === "w") {
+    playerScore++;
+  } else if (roundTwo.slice(4, 5) === "l") {
+    computerScore++;
+  }
+
+  const roundThree = playRound("scissors",(computerSelection = computerPlay()));
+  console.log(roundThree);
+  if (roundThree.slice(4, 5) === "w") {
+    playerScore;
+  } else if (roundThree.slice(4, 5) === "l") {
+    computerScore++;
+  }
+
+  const roundFour = playRound("rOcK", (computerSelection = computerPlay()));
+  console.log(roundFour);
+  if (roundFour.slice(4, 5) === "w") {
+    playerScore++;
+  } else if (roundFour.slice(4, 5) === "l") {
+    computerScore++;
+  }
+
+  const roundFive = playRound("PaPEr", (computerSelection = computerPlay()));
+  console.log(roundFive);
+  if (roundFive.slice(4, 5) === "w") {
+    playerScore++;
+  } else if (roundFive.slice(4, 5) === "l") {
+    computerScore++;
+  }
+
+  if (playerScore > computerScore) {
+    console.log(
+      `You won - Congratulations! You: ${playerScore} Computer: ${computerScore} `
+    );
+  } else if (playerScore < computerScore) {
+    console.log(
+      `You lost - Better luck next time! You: ${playerScore} Computer: ${computerScore} `
+    );
+  } else console.log(`Seems like you tied - What are the odds!?`);
+}
+
