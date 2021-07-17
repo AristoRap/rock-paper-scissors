@@ -73,7 +73,8 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
   
-  const roundOne = playRound("rock", (computerSelection = computerPlay()));
+  let playerInput = prompt(`Make a choice - Rock | Paper | Scissors`);
+  const roundOne = playRound(playerInput, (computerSelection = computerPlay()));
   console.log(roundOne);
   if (roundOne.slice(4, 5) === "w") {
     playerScore++;
@@ -81,7 +82,8 @@ function game() {
     computerScore++;
   }
 
-  const roundTwo = playRound("paper", (computerSelection = computerPlay()));
+  playerInput = prompt(`Make a choice - Rock | Paper | Scissors`);
+  const roundTwo = playRound(playerInput, (computerSelection = computerPlay()));
   console.log(roundTwo);
   if (roundTwo.slice(4, 5) === "w") {
     playerScore++;
@@ -89,7 +91,8 @@ function game() {
     computerScore++;
   }
 
-  const roundThree = playRound("scissors",(computerSelection = computerPlay()));
+  playerInput = prompt(`Make a choice - Rock | Paper | Scissors`);
+  const roundThree = playRound(playerInput,(computerSelection = computerPlay()));
   console.log(roundThree);
   if (roundThree.slice(4, 5) === "w") {
     playerScore;
@@ -97,7 +100,8 @@ function game() {
     computerScore++;
   }
 
-  const roundFour = playRound("rOcK", (computerSelection = computerPlay()));
+  playerInput = prompt(`Make a choice - Rock | Paper | Scissors`);
+  const roundFour = playRound(playerInput, (computerSelection = computerPlay()));
   console.log(roundFour);
   if (roundFour.slice(4, 5) === "w") {
     playerScore++;
@@ -105,7 +109,8 @@ function game() {
     computerScore++;
   }
 
-  const roundFive = playRound("PaPEr", (computerSelection = computerPlay()));
+  playerInput = prompt(`Make a choice - Rock | Paper | Scissors`);
+  const roundFive = playRound(playerInput, (computerSelection = computerPlay()));
   console.log(roundFive);
   if (roundFive.slice(4, 5) === "w") {
     playerScore++;
