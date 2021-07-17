@@ -95,7 +95,7 @@ function game() {
   const roundThree = playRound(playerInput,(computerSelection = computerPlay()));
   console.log(roundThree);
   if (roundThree.slice(4, 5) === "w") {
-    playerScore;
+    playerScore++;
   } else if (roundThree.slice(4, 5) === "l") {
     computerScore++;
   }
